@@ -8,12 +8,20 @@ import Footer from "./components/Footer";
 const Resume = lazy(() => import("./pages/Resume"));
 
 function App() {
+
+  const handleClickScroll = (id) => {
+    // handleSideBar();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <div className="relative overflow-hidden dark:bg-black dark:text-slate-400">
       <Router>
-        <Navbar />
+        <Navbar scrollInView={handleClickScroll}/>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home scrollInView={handleClickScroll} />} />
           <Route
             path="/resume"
             element={

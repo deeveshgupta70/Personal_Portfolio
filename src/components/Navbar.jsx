@@ -1,22 +1,17 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import { RiMenuUnfoldLine, RiMenuUnfoldFill } from "react-icons/ri";
+import { RiMenuUnfoldFill, RiMenuFoldFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import DarkBtn from "./DarkBtn";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [show, setShow] = useState(false);
   const [fixed, setFixed] = useState(false);
 
+  const scrollInView = props.scrollInView;
+
   const handleSideBar = () => {
     setShow((prev) => !prev);
-  };
-
-  const handleClickScroll = (id) => {
-    handleSideBar();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
   };
 
   useEffect(() => {
@@ -33,6 +28,11 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleClickInSideBar = (str) => {
+    handleSideBar();
+    scrollInView(str);
+  };
 
   return (
     <>
@@ -53,7 +53,7 @@ const Navbar = () => {
             <div
               id="home"
               className="nav-link text-lg font-semibold cursor-pointer nav-underline"
-              onClick={() => handleClickScroll("hero-section")}
+              onClick={() => scrollInView("hero-section")}
             >
               Home
             </div>
@@ -62,21 +62,21 @@ const Navbar = () => {
           <div
             id="about"
             className="nav-link text-lg font-semibold cursor-pointer nav-underline"
-            onClick={() => handleClickScroll("about-section")}
+            onClick={() => scrollInView("about-section")}
           >
             About
           </div>
           <div
             id="projects"
             className="nav-link text-lg font-semibold cursor-pointer nav-underline "
-            onClick={() => handleClickScroll("project-section")}
+            onClick={() => scrollInView("project-section")}
           >
             Projects
           </div>
           <div
             id="contact"
             className="nav-link text-lg font-semibold cursor-pointer nav-underline "
-            onClick={() => handleClickScroll("contact-section")}
+            onClick={() => scrollInView("contact-section")}
           >
             Contact
           </div>
@@ -90,41 +90,43 @@ const Navbar = () => {
           </Link>
         </div>
         <div
-          className={`z-10 transition-transform duration-300 right-mobile dark:bg-slate-900 dark:text-slate-400 md:hidden overflow-hidden bg-[#ffa2b6] fixed left-0 top-0 h-screen w-screen p-4 ${
+          className={`z-10 transition-transform duration-300 right-mobile dark:bg-slate-900 dark:text-slate-400 md:hidden overflow-hidden bg-slate-50 fixed left-0 top-0 h-screen w-screen p-4 ${
             show ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="mobile-sidebar h-10 p-2 bg-[#ffa2b6]">
-            <h2 className="text-3xl font-bold hover:text-blue-700">DG.</h2>
+          <div className="mobile-sidebar h-10 p-2 ">
+            <Link to={"/"}>
+              <h2 className="text-3xl font-bold hover:text-blue-700">DG.</h2>
+            </Link>
             <button
               className="absolute right-0 top-1 p-4"
               onClick={handleSideBar}
             >
-              <RiMenuUnfoldLine className="text-4xl" />
+              <RiMenuFoldFill className="text-4xl" />
             </button>
           </div>
           <div className="flex flex-col items-center gap-12 mt-16">
             <div
-              className="nav-link text-lg font-semibold py-3 hover:bg-gray-200 dark:hover:bg-slate-800 w-full text-center"
-              onClick={() => handleClickScroll("hero-section")}
+              className="nav-link text-lg font-semibold py-3 hover:bg-gray-200 dark:hover:bg-slate-800 w-full text-center cursor-pointer"
+              onClick={() => handleClickInSideBar("hero-section")}
             >
               Home
             </div>
             <div
-              className="nav-link text-lg font-semibold py-3 hover:bg-gray-200 dark:hover:bg-slate-800 w-full text-center"
-              onClick={() => handleClickScroll("about-section")}
+              className="nav-link text-lg font-semibold py-3 hover:bg-gray-200 dark:hover:bg-slate-800 w-full text-center cursor-pointer"
+              onClick={() => handleClickInSideBar("about-section")}
             >
               About
             </div>
             <div
-              className="nav-link text-lg font-semibold py-3 hover:bg-gray-200 dark:hover:bg-slate-800 w-full text-center"
-              onClick={() => handleClickScroll("project-section")}
+              className="nav-link text-lg font-semibold py-3 hover:bg-gray-200 dark:hover:bg-slate-800 w-full text-center cursor-pointer"
+              onClick={() => handleClickInSideBar("project-section")}
             >
               Projects
             </div>
             <div
-              className="nav-link text-lg font-semibold py-3 hover:bg-gray-200 dark:hover:bg-slate-800 w-full text-center"
-              onClick={() => handleClickScroll("contact-section")}
+              className="nav-link text-lg font-semibold py-3 hover:bg-gray-200 dark:hover:bg-slate-800 w-full text-center cursor-pointer"
+              onClick={() => handleClickInSideBar("contact-section")}
             >
               Contact
             </div>

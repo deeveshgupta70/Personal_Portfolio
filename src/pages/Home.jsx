@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import { FaDev, FaLaptopCode, FaLinkedin } from "react-icons/fa";
 import { FaSquareGithub, FaSquareXTwitter } from "react-icons/fa6";
@@ -5,7 +6,9 @@ import DarkBtn from "../components/DarkBtn";
 import config from "../assets/constant";
 import ContactForm from "../components/Contact";
 
-const Home = () => {
+const Home = (props) => {
+  const scrollInView = props.scrollInView;
+
   return (
     <>
       <section
@@ -21,8 +24,11 @@ const Home = () => {
             Node.js. Committed to delivering high-quality user experiences and
             adept at problem-solving
           </p>
-          <button className="md:px-10 md:py-2 px-6 py-3  dark:border-0 text-white bg-blue-600 border-2 hover:bg-blue-700 rounded-md md:text-2xl text-xl transition transform hover:-translate-y-1 duration-700">
-            Projects
+          <button
+            className="md:px-10 md:py-2 px-6 py-3  dark:border-0 text-white bg-blue-600 border-2 hover:bg-blue-700 rounded-md md:text-2xl text-xl transition transform hover:-translate-y-1 duration-700"
+            onClick={() => scrollInView("experience-section")}
+          >
+            Work
           </button>
         </div>
         <div className="scorll-btn w-6 h-10 bg-transparent absolute bottom-[24px] left-1/2 rounded-3xl overflow-hidden border-2">
@@ -79,7 +85,10 @@ const Home = () => {
               algorithms problems on LeetCode and GeeksForGeeks, showcasing my
               strong problem-solving skills.
             </p>
-            <button className="px-7 py-4 w-32 text-xl bg-blue-600 border-2 dark:border-0 hover:bg-blue-700 text-white font-semibold rounded hover:-translate-y-1 transition-all duration-500">
+            <button
+              onClick={() => scrollInView("contact-section")}
+              className="px-7 py-4 w-32 text-xl bg-blue-600 border-2 dark:border-0 hover:bg-blue-700 text-white font-semibold rounded hover:-translate-y-1 transition-all duration-500"
+            >
               Contact
             </button>
           </div>

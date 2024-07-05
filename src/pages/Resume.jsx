@@ -25,7 +25,7 @@ const Resume = () => {
   return (
     <section
       id="hero-section"
-      className="overflow-hidden bg-slate-50 dark:bg-slate-900 px-6 relative max-w-[1800px] mx-auto min-h-[700px] max-h-[1000px]"
+      className="overflow-hidden bg-slate-50 dark:bg-slate-800 p-6 relative max-w-[1800px] mx-auto min-h-[700px] max-h-[1000px] md:max-h-[1500px]"
     >
       <h1 className="capitalize text-5xl font-bold text-center mt-10 p-2">
         Resume
@@ -35,7 +35,7 @@ const Resume = () => {
         <article className="resume shadow-2xl">
           <div>
             <Document file={pdf}>
-              <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
+              <Page pageNumber={1} scale={width > 786 ? 1 : 0.6} />
             </Document>
           </div>
         </article>
