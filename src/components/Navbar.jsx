@@ -37,7 +37,7 @@ const Navbar = (props) => {
   return (
     <>
       <nav
-        className={`w-full h-10 flex bg-slate-50 justify-between p-9 md:p-10 dark:bg-slate-900  dark:border-slate-900 dark:text-slate-400 items-center transition-all duration-75 ${
+        className={`w-full h-10 flex bg-slate-100 justify-between px-5 py-9 md:p-10 dark:bg-slate-900  dark:border-slate-900 dark:text-slate-400 items-center transition-all duration-75 ${
           fixed ? "fixed top-0 left-0 shadow-lg z-50  " : "relative"
         }`}
       >
@@ -90,22 +90,19 @@ const Navbar = (props) => {
           </Link>
         </div>
         <div
-          className={`z-10 transition-transform duration-300 right-mobile dark:bg-slate-900 dark:text-slate-400 md:hidden overflow-hidden bg-slate-50 fixed left-0 top-0 h-screen w-screen p-4 ${
+          className={`z-10 mobile-sidebar transition-transform duration-300 right-mobile dark:bg-slate-900 dark:text-slate-400 md:hidden overflow-hidden bg-slate-50 fixed left-0 top-0 h-screen w-screen ${
             show ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="mobile-sidebar h-10 p-2 ">
+          <div className=" h-16  px-5 py-9 bg-slate-100 flex items-center justify-between shadow-xl  dark:bg-slate-900  dark:border-slate-900 dark:text-slate-400">
             <Link to={"/"}>
               <h2 className="text-3xl font-bold hover:text-blue-700">DG.</h2>
             </Link>
-            <button
-              className="absolute right-0 top-1 p-4"
-              onClick={handleSideBar}
-            >
+            <button className=" p-4" onClick={handleSideBar}>
               <RiMenuFoldFill className="text-4xl" />
             </button>
           </div>
-          <div className="flex flex-col items-center gap-12 mt-16">
+          <div className="flex flex-col items-center gap-12 mt-16 p-4 ">
             <div
               className="nav-link text-lg font-semibold py-3 hover:bg-gray-200 dark:hover:bg-slate-800 w-full text-center cursor-pointer"
               onClick={() => handleClickInSideBar("hero-section")}

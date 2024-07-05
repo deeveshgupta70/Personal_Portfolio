@@ -62,7 +62,7 @@ const Home = (props) => {
       </section>
       <section
         id="about-section"
-        className="about  w-full p-6 max-w-[1800px] mx-auto md:min-h-screen"
+        className="about  w-full p-6 max-w-[1800px] mx-auto md:h-[800px] "
       >
         <h1 className="capitalize text-3xl font-bold text-center mt-10 p-2 header">
           About Me
@@ -186,7 +186,7 @@ const Home = (props) => {
       </section>
       <section
         id="project-section"
-        className="projects w-full p-6 max-w-[1800px] mx-auto md:min-h-screen"
+        className="projects w-full p-6 max-w-[1800px] mx-auto md:h-[800px] "
       >
         <h1 className="capitalize text-3xl font-bold text-center mt-10 p-2 header">
           Projects

@@ -5,6 +5,8 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import { FaDownload } from "react-icons/fa";
 import pdf from "../assets/DeeveshGupta.pdf";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
@@ -27,6 +29,14 @@ const Resume = () => {
       id="hero-section"
       className="overflow-hidden bg-slate-50 dark:bg-slate-800 p-6 relative max-w-[1800px] mx-auto min-h-[700px] max-h-[1000px] md:max-h-[1500px]"
     >
+      <Link to={"/"}>
+        <p className="text-blue-500 underline underline-offset-2 flex items-center">
+          <span className="">
+            <IoIosArrowBack />
+          </span>
+          Back to homepage
+        </p>
+      </Link>
       <h1 className="capitalize text-5xl font-bold text-center mt-10 p-2">
         Resume
       </h1>
