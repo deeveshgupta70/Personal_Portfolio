@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* This won't be included in your compiled CSS unless you actually use it */
+  .header {
+    font-weight: 700;
+    position: relative;
+  }
+
+  .header::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: calc(100% / 2 - 100px);
+    width: 200px;
+    background: #8e4de8;
+    height: 2px;
+    border-radius: 50%;
+  }
+  .header::before {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    right: calc(100% / 2 - 125px);
+    width: 250px;
+    background: #1761b0;
+    height: 4px;
+    border-radius: 50%;
+  }
+
+  .dot-header {
+    position: relative;
+  }
+
+  .dot-header::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: -15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: red;
+    animation: blink 1s infinite alternate;
+  }
+  /* .dot-header::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: -15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: red;
+    animation: blink 1s infinite alternate;
+  } */
+
+  .nav-underline {
+    position: relative;
+  }
+
+  .nav-underline::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    display: block;
+    height: 2px;
+    width: 0;
+    background: blue;
+    left: -5px;
+    transition: width 0.3s ease;
+  }
+  .dark .nav-underline::after {
+    background: #fff;
+  }
+
+  .nav-underline:hover::after {
+    width: 120%;
+  }
+
+  .copyright {
+    position: relative;
+  }
+  .copyright::before {
+    content: "";
+    position: absolute;
+    left: calc(10% / 2);
+    top: 5px;
+    width: 90%;
+    height: 2px;
+    background: #fff;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+  }
+}
